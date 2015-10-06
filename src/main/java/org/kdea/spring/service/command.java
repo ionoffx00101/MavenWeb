@@ -4,6 +4,7 @@ public class command {
 
 	private int id;
 	private String pw;
+	private boolean check;
 
 	public int getId() {
 		return id;
@@ -17,6 +18,13 @@ public class command {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	public boolean isCheck() {
+		return check;
+	}
+	public void setCheck(boolean check) {
+		this.check = check;
+	}
+	
 	
 	
 }

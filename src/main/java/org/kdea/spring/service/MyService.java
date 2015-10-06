@@ -1,5 +1,7 @@
 package org.kdea.spring.service;
 
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,16 +46,16 @@ public class MyService {
 	}
 
 	public String loginform() {
+
 		
 		return "loginform";
 	}
 
 	public boolean logincheck(command com) {
-		System.out.println("4"+com.getId());//--------------------------------------------------------------------------------------
+		
 		EmpDAO dao = new EmpDAO();
 		boolean check = dao.checkEmp(com.getId(),com.getPw());
 		
-		System.out.println("5"+check);//--------------------------------------------------------------------------------------
 		return check;
 	}
 

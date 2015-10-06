@@ -32,4 +32,30 @@ public class EmpDAO extends AbstractDAO {
 		}
 		return ok;
 	}
+
+	public List<EmpVO> AllEmplist() {
+		conn = getConn();
+		String sql = "SELECT * FROM emp2";
+		boolean ok = true;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			List<EmpVO> list = new ArrayList<>();
+			while (rs.next()) {
+				EmpVO emp = new EmpVO();
+				emp.setEmpno(rs.getInt("EMPNO"));
+				emp.setEname(rs.getString("ENAME"));
+				list.add(emp);
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return null;
+	}
+
 }
